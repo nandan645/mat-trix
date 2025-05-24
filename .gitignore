@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment files
+.env
+
+# Virtual environment
+venv/
+.env/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Python-specific build artifacts
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Application-specific
+backend/chroma_db/
+backend/pdf_documents/
+backend/nature_articles.json
+
+# Shell history (if stored)
+*.sh~
+
+# Backup files
+*~
+
+# Ignore specific compiled Python files
+app.cpython-310.pyc
