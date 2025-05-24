@@ -6,7 +6,7 @@ Mat-Trix is an AI-powered assistant that answers natural language questions abou
 
 ## 🚀 Features
 
-- 🔄 **Daily Auto-Update**: Automatically scrapes and updates the latest research. (Using Cronjobs)
+- 🔄 **Daily Auto-Update**: Automatically scrapes and updates the latest research.
 - 📄 **PDF Ingestion**: Full papers are downloaded and stored in a vector database.
 - 🤖 **LLM-based Q&A**: Gemini + LangChain generates accurate, contextual answers.
 - 🔗 **Citations Included**: Each response is backed by real document sources.
