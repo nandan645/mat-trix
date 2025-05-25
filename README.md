@@ -37,6 +37,49 @@ Mat-Trix is an AI-powered assistant that answers natural language questions abou
 4. Users interact via a web UI powered by Flask → FastAPI.
 5. The backend returns answers with proper citations using RAG.
 
+```mermaid
+graph TD
+    subgraph User Layer
+        UI["User via Web Browser (index.html, script.js, style.css)"]
+    end
+
+    subgraph Frontend Server Layer
+        FS["Flask Application (app.py)"]
+    end
+
+    subgraph Backend RAG Layer
+        BE_API["FastAPI Application (main.py)"]
+        RAG["RAG Pipeline (rag_pipeline.py)"]
+        LLM["LLM - Google Gemini"]
+    end
+
+    subgraph Data Layer
+        VDB["Vector Database (ChromaDB)"]
+        PDFs["PDF Document Store"]
+        Scraper["Web Scraper (source.py)"]
+        Downloader["PDF Downloader (downloader.py)"]
+        Ingestor["Ingestion Service (ingestion.py)"]
+    end
+
+    UI -- HTTP Requests (Query/Ingest) --> FS
+    FS -- Proxied HTTP Requests --> BE_API
+    BE_API -- Invokes --> RAG
+    RAG -- Retrieves Context --> VDB
+    RAG -- Sends Context + Query --> LLM
+    LLM -- Returns Raw Answer --> RAG
+    RAG -- Formats Answer --> BE_API
+    BE_API -- Returns JSON Response --> FS
+    FS -- Returns JSON Response --> UI
+    UI -- Renders Response (using marked.js) --> User
+
+    Scraper --> MetadataJSON["Article Metadata JSON"]
+    MetadataJSON --> Downloader
+    Downloader --> PDFs
+    PDFs --> Ingestor
+    Ingestor -- Processes & Embeds --> VDB
+    BE_API -- Triggers Ingestion --> Ingestor
+```
+
 ---
 
 ## 🛠️ Setup & Usage
