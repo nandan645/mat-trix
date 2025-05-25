@@ -25,3 +25,14 @@ async function sendQuery() {
         responseBox.innerHTML = `<span style="color:red;">Network or server error</span>`;
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textarea = document.querySelector("textarea");
+
+    function autoResize() {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
+    }
+
+    textarea.addEventListener("input", autoResize);
+});

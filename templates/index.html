@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Scientific PDF Chat</title>
+    <title>Mat-trix Chat</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Ask your scientific PDFs</h1>
+        <h1 style="text-align: center;">Explore Materials Science with AI</h1>
+        <p style="text-align: center; padding-bottom: 20px;">Ask a question and get answers sourced directly from the latest articles & research papers with citations.</p>
         <textarea id="query" placeholder="Enter your question..."></textarea>
         <button onclick="sendQuery()">Submit</button>
         <div id="response"></div>
